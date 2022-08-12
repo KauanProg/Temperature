@@ -1,9 +1,11 @@
-// ignore_for_file: unused_import, non_constant_identifier_names
+// ignore_for_file: unused_import, non_constant_identifier_names, library_prefixes
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'DropDown.dart';
+import 'package:teste/Dropdown.dart';
+//import 'DropDown.dart' as Temperature;
+import 'package:teste/formula.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -79,7 +81,7 @@ class _HomePageState extends State<HomePage> {
             Text("TEMPERATURE",
                 style: GoogleFonts.inter(
                     fontSize: 20, fontWeight: FontWeight.bold)),
-            Container(width: 30),
+            Container(width: 25),
             IconButton(
               onPressed: () {},
               icon: SvgPicture.asset('assets/Share.svg',
@@ -93,15 +95,42 @@ class _HomePageState extends State<HomePage> {
               icon: SvgPicture.asset('assets/X.svg',
                   color: Colors.white, height: 32, width: 32),
             ),
-            IconButton(
+            /*IconButton(
               onPressed: () {
                 
               },
               icon: SvgPicture.asset('assets/Menu.svg',
                   color: Colors.white, height: 32, width: 32),
-            ),
+            ),*/
           ],
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 5),
+            child: PopupMenuButton(
+                position: PopupMenuPosition.under,
+                iconSize: 32,
+                itemBuilder: (context) => [
+                      PopupMenuItem(
+                        value: 1,
+                        child: Text("Language", style: GoogleFonts.inter()),
+                      ),
+                      PopupMenuItem(
+                        value: 2,
+                        child: Text("Dark Mode", style: GoogleFonts.inter()),
+                      ),
+                      PopupMenuItem(
+                        value: 3,
+                        child: Text("About", style: GoogleFonts.inter()),
+                      ),
+                    ],
+                onSelected: (value) {
+                  if (value == 1) {
+                  } else if (value == 2) {
+                  } else {}
+                }),
+          ),
+        ],
       ),
       body: Container(
         color: const Color.fromRGBO(237, 230, 227, 0.5),
@@ -157,7 +186,7 @@ class _HomePageState extends State<HomePage> {
                 style: ElevatedButton.styleFrom(
                     primary: const Color.fromRGBO(126, 5, 1, 1)),
                 onPressed: () {
-                  setState(() {
+                  setState((){
                     valor;
                   });
                   if (valor != null) {
