@@ -4,8 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:teste/Dropdown.dart';
+import 'package:teste/definition.dart';
 //import 'DropDown.dart' as Temperature;
 import 'package:teste/formula.dart';
+import 'package:teste/stepbystep.dart';
+import 'table.dart';
+
+var MudarTemaTexto = "Dark Theme";
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -95,13 +100,6 @@ class _HomePageState extends State<HomePage> {
               icon: SvgPicture.asset('assets/X.svg',
                   color: Colors.white, height: 32, width: 32),
             ),
-            /*IconButton(
-              onPressed: () {
-                
-              },
-              icon: SvgPicture.asset('assets/Menu.svg',
-                  color: Colors.white, height: 32, width: 32),
-            ),*/
           ],
         ),
         actions: [
@@ -111,22 +109,25 @@ class _HomePageState extends State<HomePage> {
                 position: PopupMenuPosition.under,
                 iconSize: 32,
                 itemBuilder: (context) => [
-                      PopupMenuItem(
-                        value: 1,
-                        child: Text("Language", style: GoogleFonts.inter()),
-                      ),
-                      PopupMenuItem(
-                        value: 2,
-                        child: Text("Dark Mode", style: GoogleFonts.inter()),
-                      ),
-                      PopupMenuItem(
-                        value: 3,
-                        child: Text("About", style: GoogleFonts.inter()),
-                      ),
-                    ],
+                  PopupMenuItem(
+                    value: 1,
+                    child: Text("Language", style: GoogleFonts.inter()),
+                  ),
+                  PopupMenuItem(
+                    value: 2,
+                    child: Text(MudarTemaTexto, style: GoogleFonts.inter()),
+                  ),
+                  PopupMenuItem(
+                    value: 3,
+                    child: Text("About", style: GoogleFonts.inter()),
+                  ),
+                ],
                 onSelected: (value) {
                   if (value == 1) {
                   } else if (value == 2) {
+                    setState(() {
+                      MudarTemaTexto = MudarTemaTexto == "Dark Theme" ? "Light Theme" : "Dark Theme";                  
+                    });
                   } else {}
                 }),
           ),
@@ -186,7 +187,7 @@ class _HomePageState extends State<HomePage> {
                 style: ElevatedButton.styleFrom(
                     primary: const Color.fromRGBO(126, 5, 1, 1)),
                 onPressed: () {
-                  setState((){
+                  setState(() {
                     valor;
                   });
                   if (valor != null) {
@@ -233,6 +234,24 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
+            SizedBox(height: 10,),
+            SizedBox(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(Icons.public, size: 32,),
+                  Text("Information",style: GoogleFonts.inter(fontSize: 16,fontWeight: FontWeight.bold,),),
+                ],
+              ),
+            ),
+            SizedBox(height: 10,),
+            Formula(),
+            SizedBox(height: 10,),
+            StepByStep(),
+            SizedBox(height: 10,),
+            Definiton(),
+            SizedBox(height: 10,),
+            Tabela(),
           ],
         ),
       ),
