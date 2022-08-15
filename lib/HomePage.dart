@@ -5,12 +5,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:teste/Dropdown.dart';
 import 'package:teste/definition.dart';
-//import 'DropDown.dart' as Temperature;
 import 'package:teste/formula.dart';
 import 'package:teste/stepbystep.dart';
 import 'table.dart';
 
 var MudarTemaTexto = "Dark Theme";
+dynamic valor;
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -20,7 +20,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  static dynamic valor;
   static dynamic numero;
   dynamic resultadofinal;
   var ControleInput = TextEditingController();
@@ -67,7 +66,7 @@ class _HomePageState extends State<HomePage> {
         numero = valor;
       }
 
-      numero = numero.toStringAsFixed(5);
+      numero = numero.toStringAsFixed(3);
     });
   }
 
@@ -216,11 +215,16 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 children: [
                   if (valor != null)
-                    Text(
-                      "$valor ${Temperatura.Temperatura1} = $numero ${Temperatura.Temperatura2}",
-                      style: GoogleFonts.inter(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 5,right: 5),
+                      child: FittedBox(
+                        child: Text(
+                          "$valor ${Temperatura.Temperatura1} = $numero ${Temperatura.Temperatura2}",
+                          style: GoogleFonts.inter(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
                     ),
                   if (valor == null)
@@ -234,7 +238,7 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             SizedBox(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -244,13 +248,13 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             Formula(),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             StepByStep(),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             Definiton(),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             Tabela(),
           ],
         ),
