@@ -1,6 +1,7 @@
 // ignore_for_file: unused_import, non_constant_identifier_names, library_prefixes
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:teste/Dropdown.dart';
@@ -9,7 +10,6 @@ import 'package:teste/formula.dart';
 import 'package:teste/stepbystep.dart';
 import 'table.dart';
 
-var MudarTemaTexto = "Dark Theme";
 dynamic valor;
 
 class HomePage extends StatefulWidget {
@@ -74,6 +74,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarColor: Colors.black12,
+          statusBarIconBrightness: Brightness.light,
+          statusBarBrightness: Brightness.dark,
+        ),
         titleSpacing: 0,
         backgroundColor: const Color.fromRGBO(126, 5, 1, 1),
         toolbarHeight: 65,
@@ -111,23 +116,18 @@ class _HomePageState extends State<HomePage> {
                   PopupMenuItem(
                     value: 1,
                     child: Text("Language", style: GoogleFonts.inter()),
-                  ),
+                  ),               
                   PopupMenuItem(
                     value: 2,
-                    child: Text(MudarTemaTexto, style: GoogleFonts.inter()),
-                  ),
-                  PopupMenuItem(
-                    value: 3,
                     child: Text("About", style: GoogleFonts.inter()),
                   ),
                 ],
                 onSelected: (value) {
                   if (value == 1) {
-                  } else if (value == 2) {
-                    setState(() {
-                      MudarTemaTexto = MudarTemaTexto == "Dark Theme" ? "Light Theme" : "Dark Theme";                  
-                    });
-                  } else {}
+
+                  }else {
+
+                  }
                 }),
           ),
         ],
