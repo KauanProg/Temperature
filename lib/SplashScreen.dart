@@ -1,5 +1,6 @@
-import 'dart:async';
+// ignore_for_file: file_names
 
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -14,11 +15,13 @@ class SplashScreen extends StatefulWidget {
 class SplashScreenState extends State {
   @override
   Widget build(BuildContext context) {
-    Timer(const Duration(milliseconds: 1500),() => Navigator.of(context).pushReplacementNamed('/home'));
+    var size = MediaQuery.of(context).size;
+    var ScreenHeight = size.height;
+    Timer(const Duration(milliseconds: 2000),() => Navigator.of(context).pushReplacementNamed('/home'));
     return Scaffold(
       body: Container(
-        height: 667,
-        width: 375,
+        height: ScreenHeight * 1,
+        width: size.width * 1,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topRight,
@@ -32,7 +35,7 @@ class SplashScreenState extends State {
         child: Column(
           children: [
             Container(
-              height: 133,
+              height: ScreenHeight * 0.20,
             ),
 
             ShaderMask(
@@ -47,8 +50,8 @@ class SplashScreenState extends State {
 
               child: SvgPicture.asset(
                 'assets/Term.svg',
-                height: 250,
-                width: 250,
+                height: ScreenHeight * 0.375,
+                width: size.width * 0.67,
               ),
             ),
             

@@ -34,7 +34,7 @@ class DropDownState extends State<DropDown> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50,
+      height: 55,
       width: 129,
       decoration: BoxDecoration(
         color: const Color.fromRGBO(126, 5, 1, 1),

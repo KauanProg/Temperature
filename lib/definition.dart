@@ -18,85 +18,87 @@ class _DefinitonState extends State<Definiton> {
   String? Temperatura2;
   String? Temperatura3;
   String? Temperatura4;
-  String? TextoTemperatura1;
-  String? TextoTemperatura2;
+  late String TextoTemperatura1;
+  late String TextoTemperatura2;
 
   void getTemp() async {
     Temperatura1 = await rootBundle.loadString('assets/File/Celsius.txt');
+    TextoTemperatura1 = Temperatura1!;
     Temperatura2 = await rootBundle.loadString('assets/File/Fahrenheit.txt');
+    TextoTemperatura2 = Temperatura2!;
     Temperatura3 = await rootBundle.loadString('assets/File/Kelvin.txt');
     Temperatura4 = await rootBundle.loadString('assets/File/Rankine.txt');
 
     if (Temperatura.Temperatura1 == "Celsius" &&
         Temperatura.Temperatura2 == "Celsius") {
-      TextoTemperatura1 = Temperatura1;
-      TextoTemperatura2 = Temperatura1;
+      TextoTemperatura1 = Temperatura1!;
+      TextoTemperatura2 = Temperatura1!;
     } else if (Temperatura.Temperatura1 == "Celsius" &&
         Temperatura.Temperatura2 == "Fahrenheit") {
-      TextoTemperatura1 = Temperatura1;
-      TextoTemperatura2 = Temperatura2;
+      TextoTemperatura1 = Temperatura1!;
+      TextoTemperatura2 = Temperatura2!;
     } else if (Temperatura.Temperatura1 == "Celsius" &&
         Temperatura.Temperatura2 == "Kelvin") {
-      TextoTemperatura1 = Temperatura1;
-      TextoTemperatura2 = Temperatura3;
+      TextoTemperatura1 = Temperatura1!;
+      TextoTemperatura2 = Temperatura3!;
     } else if (Temperatura.Temperatura1 == "Celsius" &&
         Temperatura.Temperatura2 == "Rankine") {
-      TextoTemperatura1 = Temperatura1;
-      TextoTemperatura2 = Temperatura4;
+      TextoTemperatura1 = Temperatura1!;
+      TextoTemperatura2 = Temperatura4!;
     }
 
     if (Temperatura.Temperatura1 == "Fahrenheit" &&
         Temperatura.Temperatura2 == "Celsius") {
-      TextoTemperatura1 = Temperatura2;
-      TextoTemperatura2 = Temperatura1;
+      TextoTemperatura1 = Temperatura2!;
+      TextoTemperatura2 = Temperatura1!;
     } else if (Temperatura.Temperatura1 == "Fahrenheit" &&
         Temperatura.Temperatura2 == "Fahrenheit") {
-      TextoTemperatura1 = Temperatura2;
-      TextoTemperatura2 = Temperatura2;
+      TextoTemperatura1 = Temperatura2!;
+      TextoTemperatura2 = Temperatura2!;
     } else if (Temperatura.Temperatura1 == "Fahrenheit" &&
         Temperatura.Temperatura2 == "Kelvin") {
-      TextoTemperatura1 = Temperatura2;
-      TextoTemperatura2 = Temperatura3;
+      TextoTemperatura1 = Temperatura2!;
+      TextoTemperatura2 = Temperatura3!;
     } else if (Temperatura.Temperatura1 == "Fahrenheit" &&
         Temperatura.Temperatura2 == "Rankine") {
-      TextoTemperatura1 = Temperatura2;
-      TextoTemperatura2 = Temperatura4;
+      TextoTemperatura1 = Temperatura2!;
+      TextoTemperatura2 = Temperatura4!;
     }
 
     if (Temperatura.Temperatura1 == "Kelvin" &&
         Temperatura.Temperatura2 == "Celsius") {
-      TextoTemperatura1 = Temperatura3;
-      TextoTemperatura2 = Temperatura1;
+      TextoTemperatura1 = Temperatura3!;
+      TextoTemperatura2 = Temperatura1!;
     } else if (Temperatura.Temperatura1 == "Kelvin" &&
         Temperatura.Temperatura2 == "Fahrenheit") {
-      TextoTemperatura1 = Temperatura3;
-      TextoTemperatura2 = Temperatura2;
+      TextoTemperatura1 = Temperatura3!;
+      TextoTemperatura2 = Temperatura2!;
     } else if (Temperatura.Temperatura1 == "Kelvin" &&
         Temperatura.Temperatura2 == "Kelvin") {
-      TextoTemperatura1 = Temperatura3;
-      TextoTemperatura2 = Temperatura3;
+      TextoTemperatura1 = Temperatura3!;
+      TextoTemperatura2 = Temperatura3!;
     } else if (Temperatura.Temperatura1 == "Kelvin" &&
         Temperatura.Temperatura2 == "Rankine") {
-      TextoTemperatura1 = Temperatura3;
-      TextoTemperatura2 = Temperatura4;
+      TextoTemperatura1 = Temperatura3!;
+      TextoTemperatura2 = Temperatura4!;
     }
 
     if (Temperatura.Temperatura1 == "Rankine" &&
         Temperatura.Temperatura2 == "Celsius") {
-      TextoTemperatura1 = Temperatura4;
-      TextoTemperatura2 = Temperatura1;
+      TextoTemperatura1 = Temperatura4!;
+      TextoTemperatura2 = Temperatura1!;
     } else if (Temperatura.Temperatura1 == "Rankine" &&
         Temperatura.Temperatura2 == "Fahrenheit") {
-      TextoTemperatura1 = Temperatura4;
-      TextoTemperatura2 = Temperatura2;
+      TextoTemperatura1 = Temperatura4!;
+      TextoTemperatura2 = Temperatura2!;
     } else if (Temperatura.Temperatura1 == "Rankine" &&
         Temperatura.Temperatura2 == "Kelvin") {
-      TextoTemperatura1 = Temperatura4;
-      TextoTemperatura2 = Temperatura3;
+      TextoTemperatura1 = Temperatura4!;
+      TextoTemperatura2 = Temperatura3!;
     } else if (Temperatura.Temperatura1 == "Rankine" &&
         Temperatura.Temperatura2 == "Rankine") {
-      TextoTemperatura1 = Temperatura4;
-      TextoTemperatura2 = Temperatura4;
+      TextoTemperatura1 = Temperatura4!;
+      TextoTemperatura2 = Temperatura4!;
     }
   }
 
@@ -106,16 +108,16 @@ class _DefinitonState extends State<Definiton> {
     overlayEntry.remove();
   }
 
-  showOverlay(BuildContext context) {
+  showOverlay(BuildContext context, double ValorAltura) {
     OverlayState? overlayState = Overlay.of(context);
     overlayEntry = OverlayEntry(
       builder: (context) => Positioned(
-        top: 115,
-        right: 23,
+        top: ValorAltura * 0.172413793,
+        right: 30,
         child: Container(
           alignment: Alignment.center,
           width: 312,
-          height: 500,
+          height: ValorAltura * 0.75,
           decoration: const BoxDecoration(
             color: Colors.white,
             boxShadow: [
@@ -202,7 +204,7 @@ class _DefinitonState extends State<Definiton> {
               Padding(
                 padding: const EdgeInsets.only(left: 25, right: 25),
                 child: Material(
-                    child: Text(TextoTemperatura1!,
+                    child: Text(TextoTemperatura1,
                         style: TextStyle(
                             fontSize: 15, fontWeight: FontWeight.bold))),
               ),
@@ -233,7 +235,7 @@ class _DefinitonState extends State<Definiton> {
               Padding(
                 padding: const EdgeInsets.only(left: 25, right: 25),
                 child: Material(
-                    child: Text(TextoTemperatura2!,
+                    child: Text(TextoTemperatura2,
                         style: TextStyle(
                             fontSize: 15, fontWeight: FontWeight.bold))),
               ),
@@ -247,6 +249,9 @@ class _DefinitonState extends State<Definiton> {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    var ScreenHeight = size.height;
+
     return SizedBox(
       width: 307,
       height: 30,
@@ -255,8 +260,9 @@ class _DefinitonState extends State<Definiton> {
           primary: const Color.fromRGBO(126, 5, 1, 1),
         ),
         onPressed: () {
+          FocusScope.of(context).requestFocus(FocusNode());
           getTemp();
-          showOverlay(context);
+          showOverlay(context,ScreenHeight);
         },
         child: Text(
           "Definiton",

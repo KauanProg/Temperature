@@ -1,0 +1,1 @@
+A escala Celsius tem dois pontos fixos. A temperatura de uma mistura de água líquida e gelo em equilíbrio é definida como sendo zero grau Celsius (0 ºC) e a temperatura de uma mistura de água líquida e vapor em equilíbrio é definida como sendo cem graus Celsius (100 ºC). A escala Celsius é linear e centígrada.

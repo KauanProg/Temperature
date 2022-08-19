@@ -22,6 +22,7 @@ class _TabelaState extends State<Tabela> {
           primary: const Color.fromRGBO(126, 5, 1, 1),
         ),
         onPressed: () {
+          FocusScope.of(context).requestFocus(FocusNode());
           showModalBottomSheet(
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(top: Radius.circular(40)),

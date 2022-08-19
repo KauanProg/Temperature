@@ -67,6 +67,7 @@ class _FormulaState extends State<Formula> {
           primary: const Color.fromRGBO(126, 5, 1, 1),
         ),
         onPressed: () {
+          FocusScope.of(context).requestFocus(FocusNode());
           MudarFormula();
           showModalBottomSheet(
             shape: const RoundedRectangleBorder(
@@ -75,7 +76,7 @@ class _FormulaState extends State<Formula> {
             context: context, 
             builder: (BuildContext context){
             return Container(
-              height: 251,
+              height: 256,
               width: double.infinity,
               child: Column(
                 children: [

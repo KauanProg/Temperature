@@ -1,0 +1,1 @@
+Um Kelvin é definido como a fração 1/273,16 da temperatura termodinâmica do ponto triplo da água. A magnitude do Kelvin é igual à do grau Celsius, mas a temperatura expressa em graus Celsius é numericamente igual à temperatura em Kelvin menos 273,15, isto é: ºC = K-273,15.
